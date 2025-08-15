@@ -1,3 +1,54 @@
+/**
+Detect pure nested functions (no captured outer variables).
+By default, hoist them to top of their current scope.
+With liftAcrossScopes = true, hoist them up multiple levels until:
+They remain capture-free.
+They don’t collide with existing names in target scope.
+Works across multiple nesting levels, potentially up to the file’s top-level.
+
+# Example
+Input
+
+        function outer() {
+          let x = 1;
+          function inner1() {
+            console.log("pure function");
+          }
+          function inner2() {
+            console.log(x); // captures outer var
+          }
+          if (true) {
+            function inner3() {
+              console.log("also pure");
+            }
+          }
+        }
+
+Output (liftAcrossScopes = true)
+
+        function inner1() {
+          console.log("pure function");
+        }
+        function inner3() {
+          console.log("also pure");
+        }
+        function outer() {
+          let x = 1;
+          function inner2() {
+            console.log(x); // captures outer var
+          }
+          if (true) {
+          }
+        }
+
+## How it works:
+inner1 and inner3 are pure (no captured variables).
+They get lifted to the top of the file because liftAcrossScopes = true.
+inner2 stays inside outer() because it captures x.
+
+
+*/
+// TODO:  make this also merge consecutive lifted functions at the top to avoid scattering them throughout the file. That’d make the output cleaner for a bundler pipeline.
 import { Project, SyntaxKind, Node } from "ts-morph";
 
 interface HoistOptions {
