@@ -1,3 +1,30 @@
+/**
+ts-morph refactor that lifts nested functions upward only when they don’t capture anything from the outer function’s lexical scope 
+(i.e., no free vars from the parent), and only if there’s no naming conflict in the destination scope.
+
+Below is a robust, dependency-aware implementation:
+Scans each function body for nested function declarations (not arrows/func-exprs by default).
+
+For each candidate:
+Checks it doesn’t reference any symbol declared in the nearest enclosing function (params or locals) outside of itself.
+Rejects if it uses this, super, or new.target (safer).
+Ensures no name collision exists in the destination scope.
+Lifts it to the top of the enclosing function body (after any "use strict" style prologue).
+Processes inner-most first (post-order) so multi-level lifting works.
+
+## What this guarantees
+No outer captures: The candidate function doesn’t reference any symbol declared in the nearest enclosing function outside of itself. 
+It may reference globals/imports or module-level bindings — those don’t change when moving within the same outer function.
+No name conflicts: Won’t introduce a duplicate binding in the destination scope.
+Safety around magic bindings: Rejects functions that use this, super, or new.target.
+Directive prologues respected: Inserts after "use strict" etc.
+
+## Notes / Limitations
+Targets function declarations; optionally lifts const f = function(){} via the liftFunctionExpressions path (arrows are skipped to avoid this capture issues).
+Doesn’t cross function boundaries: we only move a function to the top of its nearest enclosing function, not to the module top.
+Block-scoped function declarations (in strict/ESM) can have nuanced semantics; we only lift when they’re proven not to depend on enclosing function bindings.
+*/
+
 import {
   Project,
   SyntaxKind,
