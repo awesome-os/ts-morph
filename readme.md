@@ -12,3 +12,13 @@ Monorepo for [ts-morph](packages/ts-morph) and related projects.
 ## Resources
 
 - [TypeScript AST Viewer](https://ts-ast-viewer.com)
+
+## Quick Install & Run (Windows / Linux / macOS)
+
+```sh
+# Install globally via awesome-os/pnpm (all platforms)
+pnpm add -g github:awesome-os/ts-morph
+
+# Run directly (all platforms)
+ts-morph --help
+```

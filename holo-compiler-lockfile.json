@@ -1,0 +1,52 @@
+{
+  "schema": "holo-compiler-lockfile-v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "repo": "awesome-os/ts-morph",
+  "targets": [
+    "win64",
+    "linux-x64",
+    "linux-arm64",
+    "macos-arm64",
+    "wasm32-wasi"
+  ],
+  "generatedAt": "2026-11-24T23:53:02.473Z",
+  "dependencies": [
+    {
+      "id": "awesome-os/ts-morph/SHA256SUMS.txt",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "51e477575f89c1cc40e499f4d939db717e2e3c48a183107869f957f2c6e1814a1587699dc000078f2e5cf3e6925f40ceb72768f0747347f44605270b125463c4",
+      "size": 90,
+      "executable": false,
+      "blob": "v11/files/51/51e477575f89c1cc40e499f4d939db717e2e3c48a183107869f957f2c6e1814a1587699dc000078f2e5cf3e6925f40ceb72768f0747347f44605270b125463c4",
+      "url": "https://github.com/awesome-os/ts-morph/releases/download/v0.1.0/SHA256SUMS.txt",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/ts-morph/SHA512SUMS.txt",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "090e213366af795e89035b295dede186416fc0125bc409a2c41a9fc6cf214d9bd909bb2ae9a70031f7b750daa5e7ddf6a24376fdd772062d0b43cdebb857ea0f",
+      "size": 154,
+      "executable": false,
+      "blob": "v11/files/09/090e213366af795e89035b295dede186416fc0125bc409a2c41a9fc6cf214d9bd909bb2ae9a70031f7b750daa5e7ddf6a24376fdd772062d0b43cdebb857ea0f",
+      "url": "https://github.com/awesome-os/ts-morph/releases/download/v0.1.0/SHA512SUMS.txt",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/ts-morph/ts-morph-v0.1.0.tar.zst",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "f16635c6fcb09001f9a7bb0ac2606a9b28a8854e0b8c56e9ce65750bcfcb360ded89d886e09f518ae3a0cf9a744d3289a4ac722dffa8ba3977c67a3b11f49d04",
+      "size": 1684943,
+      "executable": false,
+      "blob": "v11/files/f1/f16635c6fcb09001f9a7bb0ac2606a9b28a8854e0b8c56e9ce65750bcfcb360ded89d886e09f518ae3a0cf9a744d3289a4ac722dffa8ba3977c67a3b11f49d04",
+      "url": "https://github.com/awesome-os/ts-morph/releases/download/v0.1.0/ts-morph-v0.1.0.tar.zst",
+      "dependencies": []
+    }
+  ]
+}
