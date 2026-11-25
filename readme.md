@@ -16,9 +16,9 @@ Monorepo for [ts-morph](packages/ts-morph) and related projects.
 ## Quick Install & Run (Windows / Linux / macOS)
 
 ```sh
-# Install globally via awesome-os/pnpm (all platforms)
-pnpm add -g github:awesome-os/ts-morph
+# Install / hydrate from v11 CAS via holo-pm
+holo-pm install repository://github.com/awesome-os/ts-morph@main
 
-# Run directly (all platforms)
-ts-morph --help
+# Or project & run directly via holo-project (0-byte hardlink)
+holo-project "project://node/ts-morph?from=repository://github.com/awesome-os/ts-morph@main"
 ```
